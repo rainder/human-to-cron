@@ -9,6 +9,7 @@ var tests = [
   ['each second', '*/1 * * * *'],
   ['each hour', '* * */1 * *'],
   ['each day', '* * * */1 *'],
+  ['each day each minute', '* */1 * */1 *'],
   ['each month', '* * * * */1'],
   ['each 5 months', '* * * * */5'],
   ['midnight', '0 0 0 * *'],
