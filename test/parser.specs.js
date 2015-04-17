@@ -3,32 +3,37 @@
 var parser = require('./..');
 var expect = require('chai').expect;
 
-var tests = [
-  ['each minute', '0 */1 * * *'],
-  ['each 2 minutes', '0 */2 * * *'],
-  ['each second', '*/1 * * * *'],
-  ['each hour', '0 0 */1 * *'],
-  ['each day', '0 0 0 */1 *'],
-  ['each day each minute', '0 */1 0 */1 *'],
-  ['each month', '0 0 0 0 */1'],
-  ['each 5 months', '0 0 0 0 */5'],
-  ['midnight', '0 0 0 * *'],
-  ['midnight each 2 minutes', '0 */2 0 * *'],
-  ['tuesday each 10 minutes', '0 */10 * 1 *'],
-  ['friday 15:44', '0 44 15 4 *'],
-  ['august friday 15:44', '0 44 15 4 7'],
-  ['23:55', '0 55 23 * *'],
-  ['monday 23:55', '0 55 23 0 *'],
-  ['23:55:22', '22 55 23 * *'],
-  ['23:00 each second', '*/1 0 23 * *'],
-];
-
 
 describe('parser tests', function () {
   it('should return expected values', function () {
-    for (let test of tests) {
-      let result = parser(test[0]);
-      expect(result).to.be.equal(test[1]);
-    }
+
+    expect(parser('each minute')).to.be.equal('* */1 * * *');
+    expect(parser('each 2 minutes')).to.be.equal('* */2 * * *');
+    expect(parser('each second')).to.be.equal('*/1 * * * *');
+    expect(parser('each hour')).to.be.equal('* * */1 * *');
+    expect(parser('each day')).to.be.equal('* * * */1 *');
+    expect(parser('each day each minute')).to.be.equal('* */1 * */1 *');
+    expect(parser('each month')).to.be.equal('* * * * */1');
+    expect(parser('each 5 months')).to.be.equal('* * * * */5');
+    expect(parser('midnight')).to.be.equal('0 0 0 * *');
+    expect(parser('midnight each 2 minutes')).to.be.equal('0 */2 0 * *');
+    expect(parser('tuesday each 10 minutes')).to.be.equal('* */10 * 1 *');
+    expect(parser('friday 15:44')).to.be.equal('0 44 15 4 *');
+    expect(parser('august friday 15:44')).to.be.equal('0 44 15 4 7');
+    expect(parser('23:55')).to.be.equal('0 55 23 * *');
+    expect(parser('monday 23:55')).to.be.equal('0 55 23 0 *');
+    expect(parser('23:55:22')).to.be.equal('22 55 23 * *');
+    expect(parser('23:00 each second')).to.be.equal('*/1 0 23 * *');
+    expect(parser('may tuesday')).to.be.equal('* * * 1 4');
+    expect(parser('may tuesday midnight')).to.be.equal('0 0 0 1 4');
+    expect(parser('once each 2 months')).to.be.equal('0 0 0 0 */2');
+    expect(parser('once each 2 months at 14:00')).to.be.equal('0 0 14 0 */2');
+    expect(parser('once each 5 hours')).to.be.equal('0 0 */5 * *');
+    expect(parser('once each 2 months')).to.be.equal('0 0 0 0 */2');
+    expect(parser('once')).to.be.equal('0 0 0 0 0');
+    expect(parser('once at wednesday')).to.be.equal('0 0 0 3 *');
+    expect(parser('wednesday midnight')).to.be.equal('0 0 0 3 *');
+    expect(parser('once each 5 hours offset 10 minutes')).to.be.equal('0 10 */5 * *');
+
   });
 });

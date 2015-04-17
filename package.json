@@ -1,6 +1,6 @@
 {
   "name": "human-to-cron",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Converts human readable expression to a cron string",
   "main": "index.js",
   "repository": {
