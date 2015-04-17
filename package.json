@@ -1,0 +1,21 @@
+{
+  "name": "human-to-cron",
+  "version": "0.1.0",
+  "description": "Converts human readable expression to a cron string",
+  "main": "index.js",
+  "git": "https://github.com/rainder/human-to-cron",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "keywords": [
+    "cron",
+    "human",
+    "crontab"
+  ],
+  "author": "Andrius Skerla",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.4"
+  }
+}
