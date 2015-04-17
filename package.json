@@ -1,6 +1,6 @@
 {
   "name": "human-to-cron",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Converts human readable expression to a cron string",
   "main": "index.js",
   "git": "https://github.com/rainder/human-to-cron",
