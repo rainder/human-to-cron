@@ -4,17 +4,17 @@ var parser = require('./..');
 var expect = require('chai').expect;
 
 var tests = [
-  ['each minute', '* */1 * * *'],
-  ['each 2 minutes', '* */2 * * *'],
+  ['each minute', '0 */1 * * *'],
+  ['each 2 minutes', '0 */2 * * *'],
   ['each second', '*/1 * * * *'],
-  ['each hour', '* * */1 * *'],
-  ['each day', '* * * */1 *'],
-  ['each day each minute', '* */1 * */1 *'],
-  ['each month', '* * * * */1'],
-  ['each 5 months', '* * * * */5'],
+  ['each hour', '0 0 */1 * *'],
+  ['each day', '0 0 0 */1 *'],
+  ['each day each minute', '0 */1 0 */1 *'],
+  ['each month', '0 0 0 0 */1'],
+  ['each 5 months', '0 0 0 0 */5'],
   ['midnight', '0 0 0 * *'],
   ['midnight each 2 minutes', '0 */2 0 * *'],
-  ['tuesday each 10 minutes', '* */10 * 1 *'],
+  ['tuesday each 10 minutes', '0 */10 * 1 *'],
   ['friday 15:44', '* 44 15 4 *'],
   ['august friday 15:44', '* 44 15 4 7'],
 ];
