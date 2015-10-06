@@ -46,7 +46,6 @@ describe('parser tests', function () {
     expect(parser('once every 2 months')).to.be.equal('0 0 0 * */2 0');
     expect(parser('once every 2 months at 14:00')).to.be.equal('0 0 14 * */2 0');
     expect(parser('once every 5 hours')).to.be.equal('0 0 */5 * * *');
-    expect(parser('once every 2 months')).to.be.equal('0 0 0 * */2 0');
     expect(parser('once')).to.be.equal('0 0 0 0 0 0');
     expect(parser('once at wednesday')).to.be.equal('0 0 0 * * 3');
     expect(parser('wednesday midnight')).to.be.equal('0 0 0 * * 3');
