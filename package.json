@@ -18,7 +18,7 @@
   "author": "Andrius Skerla",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^2.2.0",
+    "chai": "^3.3.0",
     "mocha": "^2.2.4"
   }
 }
