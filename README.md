@@ -18,4 +18,11 @@ humanToCron('august friday 15:44') // => 0 44 15 4 7 *
 
 ```
 
+## Command line utility
+
+```bash
+$ npm i -g human-to-cron
+$ human-to-cron "once each 5 months"
+```
+
 See tests for full list of expressions
