@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+'use strict';
+
+const commander = require('commander');
+const humanToCron = require('./..');
+const packageJSON = require('./../package.json');
+
+commander
+  .usage('<expression>')
+  .version(packageJSON.version)
+  .parse(process.argv);
+
+const expression = commander.args[0];
+
+if (!expression) {
+  console.error('Expression is not provided');
+  process.exit(1);
+}
+
+process.stdout.write(humanToCron(expression));
